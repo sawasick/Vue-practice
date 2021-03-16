@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Vue.js</title>
+	</head>
+	<body>
+		<div id="app1" class="app1">
+			<p>{{ message1_1 }}</p>
+			<p>{{ message1_2 }}</p>
+			<p>{{ message1_3 }}</p>
+		</div>
+		<div id="app2">
+			<!-- 以下の2つは意味的に等価 -->
+			<p>{{ message2 }}</p>
+			<p v-text="message2"></p>
+		</div>
+		<div id="app3">
+			<p v-pre>{{ message3 }}</p>
+		</div>
+		<div id="app4">
+			<a v-bind:href="url">Vue-practice</a>
+			<!-- 省略構文 -->
+			<a :href="url">Vue-practice</a>
+			<!-- checkedなどの値がいらない→属性名を指定するだけで意味があるもの -->
+			<input type="button" value="クリック" v-bind:disabled="flag" />
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
