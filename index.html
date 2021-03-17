@@ -25,6 +25,24 @@
 			<!-- checkedなどの値がいらない→属性名を指定するだけで意味があるもの -->
 			<input type="button" value="クリック" v-bind:disabled="flag" />
 		</div>
+		<div id="app5">
+			<!-- 算出プロパティ -->
+			<p>{{ localEmail }}</p>
+		</div>
+		<div id="app6">
+			<!-- メソッドを使う -->
+			<p>{{ localEmail() }}</p>
+		</div>
+		<div id="app7">
+			<!-- 算出プロパティの値はキャッシュされる -->
+			<form>
+				<input type="button" value="クリック" v-on:click="onclick" />
+			</form>
+			<p>算出プロパティ{{ randomc }}</p>
+			<p>メソッド{{ randomm() }}</p>
+			<p>現在時刻{{ current }}</p>
+		</div>
+		<div id="app8">ライフサイクルフック</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>

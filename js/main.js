@@ -33,3 +33,79 @@ new Vue({
 		flag: true,
 	},
 });
+new Vue({
+	el: '#app5',
+	data: {
+		email: 'Example@sample.com',
+	},
+	computed: {
+		localEmail: function () {
+			return this.email.split('@')[0].toLowerCase();
+		},
+	},
+});
+new Vue({
+	el: '#app6',
+	data: {
+		email: 'Example@sample.com',
+	},
+	methods: {
+		localEmail: function () {
+			return this.email.split('@')[0].toLowerCase();
+		},
+	},
+});
+new Vue({
+	el: '#app7',
+	data: {
+		current: new Date().toLocaleString(),
+	},
+	computed: {
+		//算出プロパティ経由で乱数を取得
+		randomc: function () {
+			return Math.random();
+		},
+	},
+	methods: {
+		//クリック時に処理を実行
+		onclick: function () {
+			this.current = new Date().toLocaleString();
+		},
+		//メソッド経由で乱数を取得
+		randomm: function () {
+			return Math.random();
+		},
+	},
+});
+const app8 = new Vue({
+	el: '#app8',
+	beforeCreate: function () {
+		console.log('beforeCreate...');
+	},
+	created: function () {
+		console.log('created...');
+	},
+	beforeMount: function () {
+		console.log('beforeMount...');
+	},
+	mounted: function () {
+		console.log('mounted...');
+	},
+	beforeUpdate: function () {
+		console.log('beforeUpdate...');
+	},
+	updated: function () {
+		console.log('updated...');
+	},
+	beforeDestroy: function () {
+		console.log('beforeDestroy...');
+	},
+	destroyed: function () {
+		console.log('destroyed...');
+	},
+});
+setTimeout(function () {
+	//インスタンスを破棄するメソッド
+	//Vue標準のメンバーを表すため$を付けとく
+	app8.$destroy();
+}, 3000);
