@@ -109,3 +109,85 @@ setTimeout(function () {
 	//Vue標準のメンバーを表すため$を付けとく
 	app8.$destroy();
 }, 3000);
+new Vue({
+	el: '#app9',
+	data: {
+		//現在日時
+		current: new Date(),
+	},
+	//起動時
+	created: function () {
+		//タイマーを設定
+		const that = this;
+		//1000ミリ秒スパンでcurrentプロパティを更新
+		this.timer = setInterval(function () {
+			that.current = new Date();
+		}, 1000);
+	},
+	//終了時にタイマーを破棄
+	beforeDestroy: function () {
+		clearInterval(this.timer);
+	},
+	methods: {
+		onclick: function () {
+			clearInterval(this.timer);
+		},
+	},
+});
+const app10 = new Vue({
+	el: '#app10',
+	data: {
+		my: {
+			name: '山田太郎',
+			// age: 0, //空値で用意しておく
+		},
+	},
+	created: function () {
+		const that = this;
+		//3秒後にプロパティを追加
+		this.timer = setTimeout(function () {
+			// that.my.age = 21;　//これをするなら、あらかじめプロパティを用意しておく
+			Vue.set(that.my, 'age', 21); //Vue.setで追加をVue.jsに通知
+			// app10.$set(that.my, 'age', 21); //これでも同じ意味
+			// that.my = Object.assign({}, that.my, {age: 21,　from: 'jpn',　sex: 'male'});//複数プロパティ追加ならassignがスマート
+		}, 3000);
+		//6秒後にプロパティを削除
+		this.timer = setTimeout(function () {
+			Vue.delete(that.my, 'age');
+		}, 6000);
+	},
+	beforeDestroy: function () {
+		clearInterval(this.timer);
+	},
+});
+new Vue({
+	el: '#app11',
+	data: {
+		name: '',
+		upperName: '',
+	},
+	created: function () {
+		//遅延処理用　_.debounceはLodash標準メソッド
+		this.delayFunc = _.debounce(this.getUpper, 2000);
+		// const unwatch = this.$watch('name', function(newValue, oldValue){
+		// that.delayFunc();
+		// });
+	},
+	watch: {
+		//nameプロパティを監視
+		name: function (newValue, oldValue) {
+			//変更があったらdelayFuncを呼び出す→遅延させる
+			this.delayFunc();
+		},
+	},
+	// computed: {→即座にgetUpperが実行される
+	//   upperName: function() {
+	//     return this.name.toUpperCase();
+	//   }
+	// },
+	methods: {
+		getUpper: function () {
+			this.upperName = this.name.toUpperCase();
+		},
+	},
+});

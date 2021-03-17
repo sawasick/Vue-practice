@@ -10,14 +10,17 @@
 			<p>{{ message1_2 }}</p>
 			<p>{{ message1_3 }}</p>
 		</div>
+		<hr />
 		<div id="app2">
 			<!-- 以下の2つは意味的に等価 -->
 			<p>{{ message2 }}</p>
 			<p v-text="message2"></p>
 		</div>
+		<hr />
 		<div id="app3">
 			<p v-pre>{{ message3 }}</p>
 		</div>
+		<hr />
 		<div id="app4">
 			<a v-bind:href="url">Vue-practice</a>
 			<!-- 省略構文 -->
@@ -25,14 +28,17 @@
 			<!-- checkedなどの値がいらない→属性名を指定するだけで意味があるもの -->
 			<input type="button" value="クリック" v-bind:disabled="flag" />
 		</div>
+		<hr />
 		<div id="app5">
 			<!-- 算出プロパティ -->
 			<p>{{ localEmail }}</p>
 		</div>
+		<hr />
 		<div id="app6">
 			<!-- メソッドを使う -->
 			<p>{{ localEmail() }}</p>
 		</div>
+		<hr />
 		<div id="app7">
 			<!-- 算出プロパティの値はキャッシュされる -->
 			<form>
@@ -43,6 +49,34 @@
 			<p>現在時刻{{ current }}</p>
 		</div>
 		<div id="app8">ライフサイクルフック</div>
+		<hr />
+		<div id="app9">
+			<form>
+				<input
+					type="button"
+					value="タイマーを停止(破棄)"
+					v-on:click="onclick"
+				/>
+			</form>
+			<!-- リアクティブデータ -->
+			<p>現在時刻 : {{ current.toLocaleString() }}</p>
+		</div>
+		<hr />
+		<div id="app10">
+			<!-- リアクティブシステムの制約 -->
+			<p>プロフィール {{ my.name }} {{my.age}} {{my.from}} {{my.sex}}</p>
+		</div>
+		<hr />
+		<div id="app11">
+			<!-- 入力値をnameプロパティにバインド -->
+			<label
+				>名前:
+				<input type="text" v-model="name" />
+			</label>
+			<p>入力された値: {{ upperName }}</p>
+		</div>
+		<!-- Lodashライブラリをインポート  -->
+		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>
