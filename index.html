@@ -77,6 +77,20 @@
 		</div>
 		<!-- Lodashライブラリをインポート  -->
 		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+		<hr />
+		<div id="app12">
+			<!-- イベント処理 -->
+			<button v-on:click="onclick">クリックで現在時刻表示</button>
+			<p>{{ time }}</p>
+			<!-- イベントオブジェクト -->
+			<button v-on:click="onclick2">
+				クリックでイベントオブジェクトログ出力
+			</button>
+			<!-- イベントハンドラーに任意の引数 -->
+			<button v-on:click="onclick3('こんにちは', $event)">
+				クリックであいさつ
+			</button>
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>

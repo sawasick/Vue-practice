@@ -191,3 +191,20 @@ new Vue({
 		},
 	},
 });
+new Vue({
+	el: '#app12',
+	data: {
+		time: '',
+	},
+	methods: {
+		onclick: function () {
+			this.time = new Date().toLocaleString();
+		},
+		onclick2: function (e) {
+			console.log(e);
+		},
+		onclick3: function (message, e) {
+			console.log(message, e);
+		},
+	},
+});
