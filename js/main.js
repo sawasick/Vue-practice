@@ -208,3 +208,28 @@ new Vue({
 		},
 	},
 });
+new Vue({
+	el: '#app13',
+	data: {
+		pet: 'わんわん',
+	},
+});
+new Vue({
+	el: '#app14',
+	data: {
+		agree: true,
+		agree2: 'yes',
+	},
+});
+new Vue({
+	el: '#app15',
+	data: {
+		os: [], //配列として格納される
+	},
+});
+new Vue({
+	el: '#app16',
+	data: {
+		os: '',
+	},
+});

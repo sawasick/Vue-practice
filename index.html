@@ -91,6 +91,61 @@
 				クリックであいさつ
 			</button>
 		</div>
+		<hr />
+		<div id="app13">
+			<form>
+				<label for="dog">わんわん</label>
+				<input type="radio" id="dog" value="わんわん" v-model="pet" />
+				<label for="cat">にゃんにゃん</label>
+				<input type="radio" id="cat" value="にゃんにゃん" v-model="pet" />
+				<label for="other">その他</label>
+				<input type="radio" id="other" value="その他" v-model="pet" />
+			</form>
+		</div>
+		<hr />
+		<div id="app14">
+			<form>
+				<label for="agree">同意する: </label>
+				<input type="checkbox" id="agree" v-model="agree" />
+				<span>{{ agree }}</span>
+				<br />
+				<label for="agree2">YES or NO: </label>
+				<input
+					type="checkbox"
+					id="agree2"
+					v-model="agree2"
+					true-value="yes"
+					false-value="no"
+				/>
+				<span>{{ agree2 }}</span>
+			</form>
+		</div>
+		<hr />
+		<div id="app15">
+			<form>
+				<p>お使いのOSは？</p>
+				<label for="windows">Windows</label>
+				<input type="checkbox" id="windows" value="Windows" v-model="os" />
+				<label for="mac">macOS</label>
+				<input type="checkbox" id="mac" value="macOS" v-model="os" />
+				<label for="linux">Linux</label>
+				<input type="checkbox" id="linux" value="Linux" v-model="os" />
+			</form>
+			<p>回答は: {{ os }}</p>
+		</div>
+		<hr />
+		<div id="app16">
+			<form>
+				<label for="os">お使いのOSは？</label>
+				<select id="os" v-model="os">
+					<option value="">-</option>
+					<option>Windows</option>
+					<option>macOS</option>
+					<option>Linux</option>
+				</select>
+			</form>
+			<p>回答は: {{ os }}</p>
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>
