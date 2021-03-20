@@ -146,6 +146,51 @@
 			</form>
 			<p>回答は: {{ os }}</p>
 		</div>
+		<hr />
+		<div id="app17">
+			<div>
+				<form>
+					<label for="show">表示/非表示</label>
+					<input type="checkbox" id="show" v-model="show" />
+				</form>
+				<!-- showプロパティの値に応じて表示/非表示を切り替え -->
+				<p id="panel" v-show="show">チェックされてるので表示してます</p>
+				<p v-else>チェックされてないので、非表示です</p>
+			</div>
+			<div>
+				<label for="os">OS?: </label>
+				<select id="os" v-model="os">
+					<option value="">osを選んでください</option>
+					<option value="windows">Windows</option>
+					<option value="mac">macOS</option>
+					<option value="linux">Linux</option>
+				</select>
+				<p v-if="os==='windows'">windows使ってます</p>
+				<p v-else-if="os==='mac'">macOS使ってます</p>
+				<p v-else-if="os==='linux'">Linux使ってます</p>
+				<!-- v-elseはv-if(v-else-if)の直後に記述 -->
+				<p v-else>その他使ってます</p>
+			</div>
+			<fieldset>
+				<legend>支払い方法は？</legend>
+				<br />
+				<span>クレジット</span>
+				<input type="radio" name="pay" value="credit" v-model="pay" />
+				<br />
+				<span>銀行振り込み</span>
+				<input type="radio" name="pay" value="bank" v-model="pay" />
+				<!-- 支払い方法に応じて入力ボックスを切り替え -->
+				<p v-if="pay === 'credit'">
+					カード番号:
+					<!-- 要素切り替えで描画変化するためにkeyを指定 -->
+					<input type="text" key="credit" />
+				</p>
+				<p v-if="pay === 'bank'">
+					口座番号:
+					<input type="text" key="bank" />
+				</p>
+			</fieldset>
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>

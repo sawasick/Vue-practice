@@ -233,3 +233,11 @@ new Vue({
 		os: '',
 	},
 });
+new Vue({
+	el: '#app17',
+	data: {
+		show: true,
+		os: '',
+		pay: 'credit',
+	},
+});
