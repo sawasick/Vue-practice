@@ -213,6 +213,15 @@
 			<p>2の倍数を5つ列挙</p>
 			<span v-for="i in 5">{{ i * 2 }} </span>
 		</div>
+		<hr />
+		<div id="app19">
+      <form>
+        <input type="button" value="変更" v-on:click="onclick"></input>
+      </form>
+			<ul>
+				<li v-for="item in items" v-bind:key="item">{{ item }}</li>
+			</ul>
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>

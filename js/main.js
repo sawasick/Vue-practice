@@ -271,3 +271,16 @@ new Vue({
 		},
 	},
 });
+new Vue({
+	el: '#app19',
+	data: {
+		items: ['赤', '黄', '青'],
+	},
+	methods: {
+		onclick: function () {
+			//(this.items[1] = '白'); ←これではビューに反映されない
+			Vue.set(this.items, 1, '白');
+			// this.$set(this.items, 1, '白');　←これでもOK
+		},
+	},
+});
