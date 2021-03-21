@@ -241,3 +241,33 @@ new Vue({
 		pay: 'credit',
 	},
 });
+const booksData = [
+	{
+		isbn: '123-4-55678-9',
+		title: '初めてのVue.js',
+		price: 2800,
+	},
+	{
+		isbn: '123-4-55678-99',
+		title: '初めてのReact',
+		price: 3300,
+	},
+	{
+		isbn: '123-4-55678-999',
+		title: '初めてのAngular',
+		price: 3500,
+	},
+];
+new Vue({
+	el: '#app18',
+	data: {
+		books: booksData,
+	},
+	computed: {
+		expensiveBooks: function () {
+			return this.books.filter(function (book) {
+				return book.price >= 3000;
+			});
+		},
+	},
+});

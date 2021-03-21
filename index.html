@@ -154,7 +154,7 @@
 					<input type="checkbox" id="show" v-model="show" />
 				</form>
 				<!-- showプロパティの値に応じて表示/非表示を切り替え -->
-				<p id="panel" v-show="show">チェックされてるので表示してます</p>
+				<p id="panel" v-if="show">チェックされてるので表示してます</p>
 				<p v-else>チェックされてないので、非表示です</p>
 			</div>
 			<div>
@@ -190,6 +190,28 @@
 					<input type="text" key="bank" />
 				</p>
 			</fieldset>
+		</div>
+		<hr />
+		<div id="app18">
+			<table>
+				<th>ISBN</th>
+				<th>書名</th>
+				<th>価格</th>
+				<!-- 配列から要素を順に取得 -->
+				<tr v-for="(book, i) of expensiveBooks">
+					<td>{{ i + 1 }}</td>
+					<td>{{ book.isbn }}</td>
+					<td>{{ book.title }}</td>
+					<td>{{ book.price }}円</td>
+				</tr>
+			</table>
+			<!-- オブジェクトのプロパティを順に処理 -->
+			<ul v-for="(book, i) of books">
+				<li v-for="(value, key, i) in book">{{ key }}: {{ value }}</li>
+			</ul>
+			<!-- 数値を列挙 -->
+			<p>2の倍数を5つ列挙</p>
+			<span v-for="i in 5">{{ i * 2 }} </span>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
