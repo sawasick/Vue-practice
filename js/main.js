@@ -284,3 +284,33 @@ new Vue({
 		},
 	},
 });
+new Vue({
+	el: '#app20',
+	data: {
+		attrs: {
+			size: 20,
+			maxlength: 14,
+			required: true, //入力必須にする
+		},
+		text: 'HELLO!',
+	},
+});
+new Vue({
+	el: '#app21',
+	data: {
+		attr: 'width',
+		size: 100,
+	},
+});
+new Vue({
+	el: '#app22',
+	data: {
+		text: `<img src="images/sample.png" alt="サンプル画像">`,
+	},
+});
+new Vue({
+	el: '#app23',
+	data: {
+		name: '匿名',
+	},
+});

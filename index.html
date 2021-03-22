@@ -222,6 +222,39 @@
 				<li v-for="item in items" v-bind:key="item">{{ item }}</li>
 			</ul>
 		</div>
+    <hr>
+    <div id="app20">
+      <form>
+        <label for="memo">メモ:</label>
+        <!-- 複数の属性をまとめてバインド -->
+        <input type="text" id="memo" v-bind="attrs">
+      </form>
+      <!-- 要素オブジェクトのプロパティを設定 -->
+      <!-- プロパティ名はケバブケース -->
+      <p id="app" v-bind:text-content.prop="text"></p>
+    </div>
+    <hr>
+    <div id="app21">
+      <select v-model="attr">
+        <option value="height">高さ</option>
+        <option value="width">幅</option>
+      </select>
+      <input type="text" size="5" v-model="size"><br>
+      <img src="images/sample.png" alt="サンプル画像" v-bind:[attr]="size">
+    </div>
+    <hr>
+    <div id="app22">
+      <p v-html="text">これはp要素</p>
+    </div>
+    <hr>
+    <div id="app23">
+      <form>
+        <label for="name">氏名:</label>
+        <input type="text" v-model="name" />
+      </form>
+      <p v-once>こんにちは、{{ name}} さん。</p>
+      <p>こんにちは、{{ name}} さん。</p>
+    </div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>
