@@ -314,3 +314,30 @@ new Vue({
 		name: '匿名',
 	},
 });
+new Vue({
+	el: '#app24',
+	data: {
+		color: {
+			backgroundColor: '#0000ff',
+			color: '#fff',
+		},
+		size: {
+			fontSize: '20px',
+		},
+	},
+});
+new Vue({
+	el: '#app25',
+	data: {
+		color: true,
+		isBold: true,
+		colorClass: 'color',
+		weightClass: 'weight',
+	},
+});
+new Vue({
+	el: '#app26',
+	data: {
+		message: 'こんにちは',
+	},
+});

@@ -2,6 +2,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/main.css">
 		<title>Vue.js</title>
 	</head>
 	<body>
@@ -254,6 +255,28 @@
       </form>
       <p v-once>こんにちは、{{ name}} さん。</p>
       <p>こんにちは、{{ name}} さん。</p>
+    </div>
+    <hr>
+    <div id="app24">
+      <!-- ハイフン区切りのプロパティはキャメルケースで記述 -->
+      <p v-bind:style="{fontSize: '20px', backgroundColor: '#ff0000'}">こんにちは</p>
+      <!-- ハイフン区切りのまま記述する場合→名前前後を'' で括る -->
+      <p v-bind:style="{'background-color': '#00ff00'}">HELLO</p>
+      <!-- 配列形式で、複数スタイル適用もできる -->
+      <p v-bind:style="[color, size]">Bonjour</p>
+    </div>
+    <hr>
+    <div id="app25">
+      <!-- color: color としても同じ→ES6以降はプロパティの名前と値が同じなら省略OK -->
+      <p class="txt-small" v-bind:class="{color, weight: isBold}">こんにちは</p>
+      <!-- 文字列配列として渡す -->
+      <p class="txt-small" v-bind:class="[colorClass, weightClass]">HELLO</p>
+      <!-- 文字列orオブジェクトの配列として渡す -->
+      <p class="txt-small" v-bind:class="[colorClass, {weight: isBold}]">Bonjour</p>
+    </div>
+    <hr>
+    <div id="app26">
+      <p v-cloak>{{ message }}</p>
     </div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
