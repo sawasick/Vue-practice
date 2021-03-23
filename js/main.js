@@ -341,3 +341,44 @@ new Vue({
 		message: 'こんにちは',
 	},
 });
+new Vue({
+	el: '#app27',
+	data: {
+		dice: '',
+	},
+	methods: {
+		onclick: function () {
+			this.dice = Math.floor(Math.random() * 6 + 1);
+		},
+		onParentClick: function () {
+			console.log('親要素Run');
+		},
+		onMyClick: function () {
+			console.log('現在要素Run');
+		},
+		onChildClick: function () {
+			console.log('子要素Run');
+		},
+	},
+});
+Vue.config.KeyCodes = {
+	'zen-han': 243, //全角/半角キー
+};
+new Vue({
+	el: '#app28',
+	data: {
+		txt: '',
+		txt2: '',
+	},
+	methods: {
+		clear: function () {
+			this.txt = '';
+		},
+		clear2: function () {
+			this.txt2 = '';
+		},
+		position: function (e) {
+			console.log(e.screenX, e.screenY);
+		},
+	},
+});

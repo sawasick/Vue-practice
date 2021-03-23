@@ -278,6 +278,48 @@
     <div id="app26">
       <p v-cloak>{{ message }}</p>
     </div>
+    <hr>
+    <div id="app27">
+      <!-- div要素内では右クリック無効 -->
+      <div style="width: 200px; height: 200px; background-color: #00ffff;" v-on:contextmenu.prevent>
+        この領域では右クリック無効です。
+      </div>
+      <!-- v-once -->
+      <form>
+        <input type="button" value="転がす" v-on:click.once="onclick">
+        <span>サイコロの目{{ dice }}</span>
+      </form>
+      <br>
+      <!-- イベントの伝播 -->
+      <form>
+        <div v-on:click="onParentClick">
+          親要素
+          <div v-on:click="onMyClick">
+            現在要素
+            <div v-on:click="onChildClick">
+              子要素
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr>
+    <div id="app28">
+      <!-- キーイベント -->
+      <form>
+        <!-- テキストボックス内でescキーを押すと内容をクリア -->
+        <input type="text" v-on:keyup.27="clear" v-model="txt">
+        <!-- エイリアス -->
+        <input type="text" v-on:keyup.esc="clear" v-model="txt">
+        <!-- KeyboardEvent.keyプロパティの値 -->
+        <input type="text" v-on:keyup.escape="clear" v-model="txt">
+        <!-- システムキーとの組み合わせ -->
+        <input type="text" v-on:keyup.ctrl.81.exact="clear2" v-model="txt2">
+      </form>
+      <!-- マウスイベント -->
+      <!-- div要素クリックでマウス座標をコンソールに表示 -->
+      <div class="square" v-on:click.left="position"></div>
+    </div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>
