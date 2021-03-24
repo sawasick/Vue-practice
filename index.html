@@ -320,6 +320,15 @@
       <!-- div要素クリックでマウス座標をコンソールに表示 -->
       <div class="square" v-on:click.left="position"></div>
     </div>
+    <hr>
+    <div id="app29">
+      <!-- コンポーネントの呼び出し,グローバル登録 -->
+      <my-hello-global></my-hello-global>
+    </div>
+    <div id="app30">
+      <!-- コンポーネントの呼び出し,ローカル登録 -->
+      <my-hello-local></my-hello-local>
+    </div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 		<script src="js/main.js"></script>
 	</body>

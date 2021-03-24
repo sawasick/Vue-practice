@@ -382,3 +382,31 @@ new Vue({
 		},
 	},
 });
+// コンポーネント定義
+// グローバル登録
+Vue.component('my-hello-global', {
+	template: `<p>こんにちは、グローバルの{{ name }}</p>`,
+	data: function () {
+		return {
+			name: '世界',
+		};
+	},
+});
+new Vue({
+	el: '#app29',
+});
+// ローカル登録
+new Vue({
+	el: '#app30',
+	// Vueコンストラクターのcomponentsオプション
+	components: {
+		'my-hello-local': {
+			template: `<p>こんにちは、ローカルの {{ name }}</p>`,
+			data: function () {
+				return {
+					name: '世界',
+				};
+			},
+		},
+	},
+});
